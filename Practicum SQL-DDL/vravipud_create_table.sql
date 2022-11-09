@@ -111,7 +111,7 @@ EMAIL                VARCHAR2(40)                                 NULL,
          --5. In the P_OWNER table, constrain the zip field to the values: ‘18704’, ‘18708’ or ‘18651’. 
          CONSTRAINT     P_OWNER_ZIP_CHK        CHECK(ZIP in (18704,18708,18651)),
         -- 6. Implement a constraint that checks to make sure all email addresses in the P_OWNER table are of the form [Anytext]@[Anytext].[Anytext].  Whereever you see [Anytext] this means that there must be at least one character (but no upper limit) in that spot to be a valid input.  Therefore, ‘me@hh.com’, ‘abrandyb@kent.edu’, ‘x@x.x’ would all be valid inputs.  However, your constraint should reject these entries: ‘@.’, ‘me at hh.com’, ‘me.com@hh’, ‘test@test@com’, ‘x@x, ‘a.kent.edu’. 
-         CONSTRAINT       EMAIL_CHK    CHECK(LOWER (EMAIL) LIKE '%_@_%.%_' )
+         CONSTRAINT       EMAIL_CHK    CHECK(EMAIL LIKE '%_@_%.%_' )
 );    
 
 
